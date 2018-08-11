@@ -1,0 +1,166 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>FF14　エウレカ・パゴス編　支援ツール</title>
+	<link rel="stylesheet" href="css/leaflet.css">
+	<link rel="stylesheet" href="css/L.css">
+	<link rel="stylesheet" href="css/common.css">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="js/leaflet.js"></script>
+	<script src="js/L.js"></script>
+	<script src="js/map.js"></script>
+	<script src="js/time.js"></script>
+	<script src="js/main.js"></script>
+</head>
+
+<body>
+	<b>FF14　エウレカ・パゴス編　支援ツール Ver<span id="version">1.0.0</span></b><span id="oldMsg">※古いバージョンのデータを使用しています。最新に更新する場合、ページ下部の「設定リセット」ボタンを押してください。</span>
+	<div id="google_translate_element"></div>
+	<script type="text/javascript">
+	function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'ja', includedLanguages: 'de,en,fr,it,ko,zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+	}
+	</script><script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	<table border="1">
+		<tbody>
+			<tr>
+				<td class="timeTableTitle">天気変更時刻</td>
+				<td class="timeTableValue">現在時刻</td>
+				<td class="timeTableValue">次回</td>
+				<td class="timeTableValue">次々回</td>
+				<td class="timeTableValue">次々々回</td>
+			</tr>
+			<tr>
+				<td>エオルゼア時間</td>
+				<td align="center">
+					<div id="eotime">21:09</div>
+				</td>
+				<td align="center">
+					<div id="firstE">00:00</div>
+				</td>
+				<td align="center">
+					<div id="secondE">08:00</div>
+				</td>
+				<td align="center">
+					<div id="thirdE">16:00</div>
+				</td>
+			</tr>
+			<tr>
+				<td>日本時間</td>
+				<td align="center">
+					<div id="localtime">09:21</div>
+				</td>
+				<td align="center">
+					<div id="firstLT">09:30</div>
+				</td>
+				<td align="center">
+					<div id="secondLT">09:53</div>
+				</td>
+				<td align="center">
+					<div id="thirdLT">10:16</div>
+				</td>
+			</tr>
+			<tr>
+				<td>タイマー</td>
+				<td align="center">--′--</td>
+				<td align="center">
+					<div id="firstL">--′--</div>
+				</td>
+				<td align="center">
+					<div id="secondL">--′--</div>
+				</td>
+				<td align="center">
+					<div id="thirdL">--′--</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table border="1">
+	<tbody>
+		<tr>
+			<td class="leftMap">
+				<div id="map"></div>
+			</td>
+			<td class="rightTable">
+				<table id="NMTable" border="1">
+					<thead>
+						<tr><td>NMLv</td><td>FATE(NM)</td><td>時間</td><td>NOW</td><td>トリガー</td><td>Lv</td><td>備考</td></tr>
+					</thead>
+					<tbody>
+						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM01" size="4" type="text"></td><td><input value="１" class="now" onclick="main.pressNow(1);" type="button"></td><td></td><td></td><td></td></tr>
+						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM02" size="4" type="text"></td><td><input value="２" class="now" onclick="main.pressNow(2);" type="button"></td><td></td><td></td><td></td></tr>
+						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM03" size="4" type="text"></td><td><input value="３" class="now" onclick="main.pressNow(3);" type="button"></td><td></td><td></td><td></td></tr>
+						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM04" size="4" type="text"></td><td><input value="４" class="now" onclick="main.pressNow(4);" type="button"></td><td></td><td></td><td></td></tr>
+						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM05" size="4" type="text"></td><td><input value="５" class="now" onclick="main.pressNow(5);" type="button"></td><td></td><td></td><td></td></tr>
+						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM06" size="4" type="text"></td><td><input value="６" class="now" onclick="main.pressNow(6);" type="button"></td><td></td><td></td><td></td></tr>
+						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM07" size="4" type="text"></td><td><input value="７" class="now" onclick="main.pressNow(7);" type="button"></td><td></td><td></td><td></td></tr>
+						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM08" size="4" type="text"></td><td><input value="８" class="now" onclick="main.pressNow(8);" type="button"></td><td></td><td></td><td></td></tr>
+						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM09" size="4" type="text"></td><td><input value="９" class="now" onclick="main.pressNow(9);" type="button"></td><td></td><td></td><td></td></tr>
+						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM10" size="4" type="text"></td><td><input value="１０" class="now" onclick="main.pressNow(10);" type="button"></td><td></td><td></td><td></td></tr>
+						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM11" size="4" type="text"></td><td><input value="１１" class="now" onclick="main.pressNow(11);" type="button"></td><td></td><td></td><td></td></tr>
+						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM12" size="4" type="text"></td><td><input value="１２" class="now" onclick="main.pressNow(12);" type="button"></td><td></td><td></td><td></td></tr>
+						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM13" size="4" type="text"></td><td><input value="１３" class="now" onclick="main.pressNow(13);" type="button"></td><td></td><td></td><td></td></tr>
+						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM14" size="4" type="text"></td><td><input value="１４" class="now" onclick="main.pressNow(14);" type="button"></td><td></td><td></td><td></td></tr>
+						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM15" size="4" type="text"></td><td><input value="１５" class="now" onclick="main.pressNow(15);" type="button"></td><td></td><td></td><td></td></tr>
+						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM16" size="4" type="text"></td><td><input value="１６" class="now" onclick="main.pressNow(16);" type="button"></td><td></td><td></td><td></td></tr>
+						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM17" size="4" type="text"></td><td><input value="１７" class="now" onclick="main.pressNow(17);" type="button"></td><td></td><td></td><td></td></tr>
+						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM18" size="4" type="text"></td><td><input value="１８" class="now" onclick="main.pressNow(18);" type="button"></td><td></td><td></td><td></td></tr>
+						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM19" size="4" type="text"></td><td><input value="１９" class="now" onclick="main.pressNow(19);" type="button"></td><td></td><td></td><td></td></tr>
+						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM20" size="4" type="text"></td><td><input value="２０" class="now" onclick="main.pressNow(20);" type="button"></td><td></td><td></td><td></td></tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input name="trigger" onclick="time.result()" value="No" type="radio">No.順(7行)
+				<input name="trigger" onclick="time.result()" value="Time" type="radio">時系列順（7行）<br>
+				<input name="trigger" onclick="time.result()" value="No2" type="radio">No.順(1行・略称)
+				<input name="trigger" onclick="time.result()" value="Time2" checked="checked" type="radio">時系列順（1行・略称）
+			</td>
+			<td>
+				<button type="button" name="Reset" onclick="main.clearTime();" class="btn">時間を初期化する</button>
+				<button type="button" name="Copy" onclick="main.copyText();" class="btn">クリップボードにコピー</button>
+				<input id="CH1" value="2hour" checked="checked" onchange="result()" type="checkbox">2時間後の「OK!」表記
+				<button type="button" name="Import" onclick="main.importText()" class="btn">取込み</button>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<textarea id="result" rows="3" style="width:1040px"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<textarea id="importText" rows="3" placeholder="テキストから時刻を取り込みます。
+シャウトされたNM情報のテキストを入力してください。" style="width:1040px"></textarea>
+			</td>
+		</tr>
+	</tbody>
+	</table>
+	※前回時間から1時間50分未満であれば記号が赤く、1時間50分でオレンジ、2時間経過すると黒になります。<br>
+	※NOWボタンを押すと、現在の時刻が自動記入されます。また、マップ上の記号をクリックしても同様の効果があります。<br>
+	このページは<a href="https://mogaasa.web.fc2.com/anemoth.html" _pageexpand_="12">FF14　エウレカ・アネモス編　支援ツール</a>を元に作成されました。
+	<div id="maintanance">
+		<p>多言語への変更やNM情報の変更の際に下記JSONデータを変更してください。<br>
+		保存したデータはブラウザに保存され、再表示時にロードされます。</p>
+		<p class="settingCaption">NMデータJSONデータ(NMLv,NM,Triger,Lv,Remarks,x,y,shout1,shout2)</p>
+		<textarea id="NMData" rows="4" class="settingData"></textarea>
+		<p class="settingCaption">シャウト取り込み正規表現JSONデータ(マッチング条件,[NM01-20])</p>
+		<textarea id="ImportNMList" rows="4" class="settingData"></textarea>
+		<button type="button" name="SaveData" onclick="main.saveData()" class="btn">設定保存</button>
+		<button type="button" name="ResetData" onclick="main.resetData(true)" class="btn">設定リセット</button>
+		<div class="message">
+			<p id="errorMsg1">$件目のデータが9項目設定されていません。</p>
+			<p id="errorMsg2">$件目のデータにてx座標に数値が入力されていません。</p>
+			<p id="errorMsg3">$件目のデータにてy座標に数値が入力されていません。</p>
+			<p id="errorMsg4">$件目のデータが2項目設定されていません。</p>
+			<p id="errorMsg5">$件目のデータにて2項目目のデータに「NM01」～「NM20」以外は入力しないでください。</p>
+			<p id="errorMsg6">入力されたNMデータの形式に誤りがあります。</p>
+			<p id="successMsg1">設定が保存されました。ページ再表示時に設定したデータがロードされます。</p>
+			<p id="successMsg2">保存した設定をリセットしました。ページ再表示時に設定したデータがロードされます。</p>
+		</div>
+	</div>
+</body>
+</html>

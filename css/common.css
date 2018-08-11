@@ -1,0 +1,68 @@
+﻿/* NOWボタン */
+.now {
+	width: 45px;
+}
+
+/* 天気時刻テーブルタイトル */
+.timeTableTitle {
+	min-width: 200px;
+}
+
+/* 天気時刻テーブル値 */
+.timeTableValue {
+	min-width: 100px;
+	text-align: center;
+}
+
+/* NMテーブル */
+#NMTable {
+	min-width: 540px;
+	font-size: 9pt;
+}
+
+/* ボタンのスタイル */
+.btn {
+	margin-left:20px;
+}
+
+.leftMap {
+	width: 500px;
+}
+
+.rightTable {
+	min-width: 540px;
+}
+
+/* 地図 */
+#map {
+	width:500px;
+	height:500px;
+}
+
+/* 設定用テキストエリア */
+.settingData {
+	width: 100%;
+}
+
+/* 設定用テキストエリアタイトル */
+.settingCaption {
+	margin-bottom: 0px;
+}
+
+/* メンテナンス用 */
+#maintanance {
+	border: 1px skyblue dashed;
+	margin-top: 10px;
+}
+
+/* メッセージ */
+.message {
+	display: none;
+}
+
+/* 旧データ使用メッセージ */
+#oldMsg {
+	color: #ff0000;
+	padding-left: 30px;
+	display: none;
+}
