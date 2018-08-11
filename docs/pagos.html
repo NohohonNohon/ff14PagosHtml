@@ -79,7 +79,7 @@
 	<table border="1">
 	<tbody>
 		<tr>
-			<td class="leftMap">
+			<td class="leftTable">
 				<div id="map"></div>
 			</td>
 			<td class="rightTable">
@@ -88,38 +88,38 @@
 						<tr><td>EL</td><td>FATE(NM)</td><td>時間</td><td>NOW</td><td>トリガー</td><td>Lv</td><td>備考</td></tr>
 					</thead>
 					<tbody>
-						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM01" size="4" type="text"></td><td><input value="１" class="now" onclick="main.pressNow(1);" type="button"></td><td></td><td></td><td></td></tr>
-						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM02" size="4" type="text"></td><td><input value="２" class="now" onclick="main.pressNow(2);" type="button"></td><td></td><td></td><td></td></tr>
-						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM03" size="4" type="text"></td><td><input value="３" class="now" onclick="main.pressNow(3);" type="button"></td><td></td><td></td><td></td></tr>
-						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM04" size="4" type="text"></td><td><input value="４" class="now" onclick="main.pressNow(4);" type="button"></td><td></td><td></td><td></td></tr>
-						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM05" size="4" type="text"></td><td><input value="５" class="now" onclick="main.pressNow(5);" type="button"></td><td></td><td></td><td></td></tr>
-						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM06" size="4" type="text"></td><td><input value="６" class="now" onclick="main.pressNow(6);" type="button"></td><td></td><td></td><td></td></tr>
-						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM07" size="4" type="text"></td><td><input value="７" class="now" onclick="main.pressNow(7);" type="button"></td><td></td><td></td><td></td></tr>
-						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM08" size="4" type="text"></td><td><input value="８" class="now" onclick="main.pressNow(8);" type="button"></td><td></td><td></td><td></td></tr>
-						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM09" size="4" type="text"></td><td><input value="９" class="now" onclick="main.pressNow(9);" type="button"></td><td></td><td></td><td></td></tr>
-						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM10" size="4" type="text"></td><td><input value="１０" class="now" onclick="main.pressNow(10);" type="button"></td><td></td><td></td><td></td></tr>
-						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM11" size="4" type="text"></td><td><input value="１１" class="now" onclick="main.pressNow(11);" type="button"></td><td></td><td></td><td></td></tr>
-						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM12" size="4" type="text"></td><td><input value="１２" class="now" onclick="main.pressNow(12);" type="button"></td><td></td><td></td><td></td></tr>
-						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM13" size="4" type="text"></td><td><input value="１３" class="now" onclick="main.pressNow(13);" type="button"></td><td></td><td></td><td></td></tr>
-						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM14" size="4" type="text"></td><td><input value="１４" class="now" onclick="main.pressNow(14);" type="button"></td><td></td><td></td><td></td></tr>
-						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM15" size="4" type="text"></td><td><input value="１５" class="now" onclick="main.pressNow(15);" type="button"></td><td></td><td></td><td></td></tr>
-						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM16" size="4" type="text"></td><td><input value="１６" class="now" onclick="main.pressNow(16);" type="button"></td><td></td><td></td><td></td></tr>
-						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM17" size="4" type="text"></td><td><input value="１７" class="now" onclick="main.pressNow(17);" type="button"></td><td></td><td></td><td></td></tr>
-						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM18" size="4" type="text"></td><td><input value="１８" class="now" onclick="main.pressNow(18);" type="button"></td><td></td><td></td><td></td></tr>
-						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM19" size="4" type="text"></td><td><input value="１９" class="now" onclick="main.pressNow(19);" type="button"></td><td></td><td></td><td></td></tr>
-						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM20" size="4" type="text"></td><td><input value="２０" class="now" onclick="main.pressNow(20);" type="button"></td><td></td><td></td><td></td></tr>
+						<tr><td class="notranslate"></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM01" size="4" type="text"></td><td class="notranslate"><input value="１" class="now" onclick="main.pressNow(1);" type="button"></td><td></td><td class="notranslate"></td><td></td></tr>
+						<tr><td class="notranslate"></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM02" size="4" type="text"></td><td class="notranslate"><input value="２" class="now" onclick="main.pressNow(2);" type="button"></td><td></td><td class="notranslate"></td><td></td></tr>
+						<tr><td class="notranslate"></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM03" size="4" type="text"></td><td class="notranslate"><input value="３" class="now" onclick="main.pressNow(3);" type="button"></td><td></td><td class="notranslate"></td><td></td></tr>
+						<tr><td class="notranslate"></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM04" size="4" type="text"></td><td class="notranslate"><input value="４" class="now" onclick="main.pressNow(4);" type="button"></td><td></td><td class="notranslate"></td><td></td></tr>
+						<tr><td class="notranslate"></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM05" size="4" type="text"></td><td class="notranslate"><input value="５" class="now" onclick="main.pressNow(5);" type="button"></td><td></td><td class="notranslate"></td><td></td></tr>
+						<tr><td class="notranslate"></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM06" size="4" type="text"></td><td class="notranslate"><input value="６" class="now" onclick="main.pressNow(6);" type="button"></td><td></td><td class="notranslate"></td><td></td></tr>
+						<tr><td class="notranslate"></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM07" size="4" type="text"></td><td class="notranslate"><input value="７" class="now" onclick="main.pressNow(7);" type="button"></td><td></td><td class="notranslate"></td><td></td></tr>
+						<tr><td class="notranslate"></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM08" size="4" type="text"></td><td class="notranslate"><input value="８" class="now" onclick="main.pressNow(8);" type="button"></td><td></td><td class="notranslate"></td><td></td></tr>
+						<tr><td class="notranslate"></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM09" size="4" type="text"></td><td class="notranslate"><input value="９" class="now" onclick="main.pressNow(9);" type="button"></td><td></td><td class="notranslate"></td><td></td></tr>
+						<tr><td class="notranslate"></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM10" size="4" type="text"></td><td class="notranslate"><input value="１０" class="now" onclick="main.pressNow(10);" type="button"></td><td></td><td class="notranslate"></td><td></td></tr>
+						<tr><td class="notranslate"></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM11" size="4" type="text"></td><td class="notranslate"><input value="１１" class="now" onclick="main.pressNow(11);" type="button"></td><td></td><td class="notranslate"></td><td></td></tr>
+						<tr><td class="notranslate"></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM12" size="4" type="text"></td><td class="notranslate"><input value="１２" class="now" onclick="main.pressNow(12);" type="button"></td><td></td><td class="notranslate"></td><td></td></tr>
+						<tr><td class="notranslate"></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM13" size="4" type="text"></td><td class="notranslate"><input value="１３" class="now" onclick="main.pressNow(13);" type="button"></td><td></td><td class="notranslate"></td><td></td></tr>
+						<tr><td class="notranslate"></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM14" size="4" type="text"></td><td class="notranslate"><input value="１４" class="now" onclick="main.pressNow(14);" type="button"></td><td></td><td class="notranslate"></td><td></td></tr>
+						<tr><td class="notranslate"></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM15" size="4" type="text"></td><td class="notranslate"><input value="１５" class="now" onclick="main.pressNow(15);" type="button"></td><td></td><td class="notranslate"></td><td></td></tr>
+						<tr><td class="notranslate"></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM16" size="4" type="text"></td><td class="notranslate"><input value="１６" class="now" onclick="main.pressNow(16);" type="button"></td><td></td><td class="notranslate"></td><td></td></tr>
+						<tr><td class="notranslate"></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM17" size="4" type="text"></td><td class="notranslate"><input value="１７" class="now" onclick="main.pressNow(17);" type="button"></td><td></td><td class="notranslate"></td><td></td></tr>
+						<tr><td class="notranslate"></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM18" size="4" type="text"></td><td class="notranslate"><input value="１８" class="now" onclick="main.pressNow(18);" type="button"></td><td></td><td class="notranslate"></td><td></td></tr>
+						<tr><td class="notranslate"></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM19" size="4" type="text"></td><td class="notranslate"><input value="１９" class="now" onclick="main.pressNow(19);" type="button"></td><td></td><td class="notranslate"></td><td></td></tr>
+						<tr><td class="notranslate"></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM20" size="4" type="text"></td><td class="notranslate"><input value="２０" class="now" onclick="main.pressNow(20);" type="button"></td><td></td><td class="notranslate"></td><td></td></tr>
 					</tbody>
 				</table>
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td  class="leftTable">
 				<input name="trigger" onclick="time.result()" value="No" type="radio">No.順(7行)
 				<input name="trigger" onclick="time.result()" value="Time" type="radio">時系列順（7行）<br>
 				<input name="trigger" onclick="time.result()" value="No2" type="radio">No.順(1行・略称)
 				<input name="trigger" onclick="time.result()" value="Time2" checked="checked" type="radio">時系列順（1行・略称）
 			</td>
-			<td>
+			<td class="rightTable">
 				<button type="button" name="Reset" onclick="main.clearTime();" class="btn">時間を初期化する</button>
 				<button type="button" name="Copy" onclick="main.copyText();" class="btn">クリップボードにコピー</button>
 				<input id="CH1" value="2hour" checked="checked" onchange="result()" type="checkbox">2時間後の「OK!」表記
@@ -128,13 +128,13 @@
 		</tr>
 		<tr>
 			<td colspan="2">
-				<textarea id="result" rows="3" style="width:1040px"></textarea>
+				<textarea id="result" rows="3" style="width:100%;"></textarea>
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2">
 				<textarea id="importText" rows="3" placeholder="テキストから時刻を取り込みます。
-シャウトされたNM情報のテキストを入力してください。" style="width:1040px"></textarea>
+シャウトされたNM情報のテキストを入力してください。" style="width:100%;"></textarea>
 			</td>
 		</tr>
 	</tbody>
