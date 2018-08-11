@@ -85,7 +85,7 @@
 			<td class="rightTable">
 				<table id="NMTable" border="1">
 					<thead>
-						<tr><td>NMLv</td><td>FATE(NM)</td><td>時間</td><td>NOW</td><td>トリガー</td><td>Lv</td><td>備考</td></tr>
+						<tr><td>EL</td><td>FATE(NM)</td><td>時間</td><td>NOW</td><td>トリガー</td><td>Lv</td><td>備考</td></tr>
 					</thead>
 					<tbody>
 						<tr><td></td><td></td><td><input maxlength="4" onchange="time.result();" onkeyup="this.value=this.value.replace(/[^0-9]+/i,'')" id="NM01" size="4" type="text"></td><td><input value="１" class="now" onclick="main.pressNow(1);" type="button"></td><td></td><td></td><td></td></tr>
@@ -145,7 +145,7 @@
 	<div id="maintanance">
 		<p>他言語への変更やNM情報の変更の際、下記JSONデータを変更してください。<br>
 		保存したデータはブラウザに保存され、再表示時にロードされます。</p>
-		<p class="settingCaption">NMデータJSONデータ(NMLv,NM,Triger,Lv,Remarks,x,y,shout1,shout2)</p>
+		<p class="settingCaption">NMデータJSONデータ(EL,NM,Triger,Lv,Remarks,x,y,shout1,shout2)</p>
 		<textarea id="NMData" rows="4" class="settingData"></textarea>
 		<p class="settingCaption">シャウト取り込み正規表現JSONデータ(マッチング条件,[NM01-20])</p>
 		<textarea id="ImportNMList" rows="4" class="settingData"></textarea>
