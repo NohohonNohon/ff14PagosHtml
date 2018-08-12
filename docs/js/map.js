@@ -36,6 +36,7 @@ var map = (function() {
 				attribution:'<a href="http://www.jp.square-enix.com/">SQUARE ENIX CO</a> | <a href="http://jp.finalfantasyxiv.com/">FINAL FANTASY XIV</a>'
 			}).addTo(mapObj);
 
+			/* マーカーと重なってしまうため、削除
 			var marker = L.marker(map.getLatlng(23.2,27.5), {icon: mark})
 				.bindPopup("ヴロンデットの別荘")
 				.addTo(mapObj);
@@ -56,17 +57,17 @@ var map = (function() {
 				this.closePopup();
 			});
 
-			var point = L.point(0,0); // x=0,y=0
-			var latlng = mapObj.layerPointToLatLng(point);
 			var marker = L.marker(map.getLatlng(28.4,15.7), {icon: mark})
 				.bindPopup("レビテト研究分室")
 				.addTo(mapObj);
 				marker.on('mouseover', function (e) {
 				this.openPopup();
 			});
+			
+
 			marker.on('mouseout', function (e) {
 				this.closePopup();
-			});
+			});*/
 				
 			for(let i = 0; i < markinga.length; i++) {
 				markinga[i].addTo(mapObj);

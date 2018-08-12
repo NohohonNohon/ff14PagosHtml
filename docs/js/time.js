@@ -641,6 +641,16 @@ var time = (function() {
 			}
 		}
 
+		//shout文(むーむーさん準拠)
+		var NMR2 = [];
+		for (var i = 0; i < NMData.length; i++) {
+			if(NMData[i][9] == null) {
+				NMR2[i] = 'データ無し' + NH[i];
+			} else if(NMData[i][9] != '') {
+				NMR2[i] = NMData[i][9] + NH[i];
+			}
+		}
+
 		for(let i = 0; i < NM.length; i++) {
 			NM[i]=parseInt(NM[i],10);
 			if(NM[i] == -1){
@@ -657,10 +667,12 @@ var time = (function() {
 				id:i+1,
 				time:NM[i],
 				name:NNM[i],
-				namer:NMR[i]
+				namer:NMR[i],
+				namer2:NMR2[i]
 			}
 		}
 
+		//shout1の出力
 		if(radio[0].checked){
 			const order = [
 			{key: "id", reverse: false}];
@@ -688,6 +700,7 @@ var time = (function() {
 			}
 		}
 
+		//shout2の出力
 		if(radio[2].checked){
 			const order = [
 			{key: "id", reverse: false}];
@@ -704,6 +717,14 @@ var time = (function() {
 			var shout = "/sh " + users[0].namer;
 			for (var i = 1; i < users.length; i++) {
 				shout = shout + "、" + users[i].namer;
+			}
+		}
+
+		//shout3の出力
+		if(radio[4].checked){
+			var shout = "/sh " + users[0].namer2;
+			for (var i = 1; i < users.length; i++) {
+				shout = shout + "、" + users[i].namer2;
 			}
 		}
 
