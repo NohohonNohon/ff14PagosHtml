@@ -34,11 +34,16 @@ var main = (function() {
 		var i = 0;
 		$('#NMTable tbody tr').each(function(){
 			var cells = $(this).children();
-			$(cells[0]).text(NMData[i][0]);
-			$(cells[1]).text(NMData[i][1]);
-			$(cells[4]).text(NMData[i][2]);
-			$(cells[5]).text(NMData[i][3]);
-			$(cells[6]).text(NMData[i][4]);
+			//NMが無いデータは行を非表示にする
+			if(NMData[i][1] == '') {
+				$(cells[1]).parent().css('display','none');
+			} else {
+				$(cells[0]).text(NMData[i][0]);
+				$(cells[1]).text(NMData[i][1]);
+				$(cells[4]).text(NMData[i][2]);
+				$(cells[5]).text(NMData[i][3]);
+				$(cells[6]).text(NMData[i][4]);
+			}
 			i++;
 		});
 	}

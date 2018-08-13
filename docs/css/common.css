@@ -66,3 +66,14 @@
 	padding-left: 30px;
 	display: none;
 }
+
+
+/* ヘッダー */
+.header {
+	width: 100%;
+}
+
+/* Google翻訳部品 */
+#google_translate_element {
+	float: right;
+}
