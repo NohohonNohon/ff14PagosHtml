@@ -23,6 +23,8 @@
 /* ボタンのスタイル */
 .btn {
 	margin-left:20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .leftTable {
@@ -76,4 +78,29 @@
 /* Google翻訳部品 */
 #google_translate_element {
 	float: right;
+}
+
+/* シャウト文変更チェックボックスの表示切り替え */
+.viewChangeShoutFalse #ChangeShout {
+	display: none;
+}
+
+.viewChangeShoutTrue #ChangeShout {
+	display: block;
+}
+
+.viewChangeShoutFalse #VeiwChangeShoutTrue {
+	display: block;
+}
+
+.viewChangeShoutTrue #VeiwChangeShoutTrue {
+	display: none;
+}
+
+.viewChangeShoutFalse #VeiwChangeShoutFalse {
+	display: none;
+}
+
+.viewChangeShoutTrue #VeiwChangeShoutFalse {
+	display: block;
 }

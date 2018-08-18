@@ -115,12 +115,16 @@
 			</td>
 		</tr>
 		<tr>
-			<td  class="leftTable">
-				<input name="trigger" onclick="time.result()" value="No" type="radio">No.順(7行)
-				<input name="trigger" onclick="time.result()" value="Time" type="radio">時系列順（7行）<br>
-				<input name="trigger" onclick="time.result()" value="No2" type="radio">No.順(1行・略称)
-				<input name="trigger" onclick="time.result()" value="Time2" type="radio">時系列順（1行・略称）<br>
-				<input name="trigger" onclick="time.result()" value="mumu" checked="checked" type="radio">「むーむーさん」準拠
+			<td id="ChangeShout" class="leftTable viewChangeShoutFalse">
+				<button type="button" id="VeiwChangeShoutTrue" name="VeiwChangeShoutTrue" onclick="main.viewChangeShout(true);" class="btn">▽シャウト文を変更</button>
+				<button type="button" id="VeiwChangeShoutFalse" name="VeiwChangeShoutFalse" onclick="main.viewChangeShout(false);" class="btn">△シャウト文を変更</button>
+				<div id="ChangeShout">
+					<input name="trigger" onclick="time.result()" value="No" type="radio">No.順(7行)
+					<input name="trigger" onclick="time.result()" value="Time" type="radio">時系列順（7行）<br>
+					<input name="trigger" onclick="time.result()" value="No2" type="radio">No.順(1行・略称)
+					<input name="trigger" onclick="time.result()" value="Time2" type="radio">時系列順（1行・略称）<br>
+					<input name="trigger" onclick="time.result()" value="mumu" checked="checked" type="radio">「むーむーさん」準拠
+				</div>
 			</td>
 			<td class="rightTable">
 				<button type="button" name="Reset" onclick="main.clearTime();" class="btn">時間を初期化する</button>

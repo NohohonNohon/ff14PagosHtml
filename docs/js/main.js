@@ -214,7 +214,21 @@ var main = (function() {
 			if(msgFlag) {
 				alert($('#successMsg2').text());
 			}
-		}
+		},
+
+		/**
+		* シャウト文変更チェックボックスの表示を切り替える
+		* @param {viewFlag} シャウト文変更チェックボックスを表示する(true:表示する、false:表示しない)
+		*/
+		viewChangeShout: function(viewFlag) {
+			if(viewFlag) {
+				$('#ChangeShout').removeClass('viewChangeShoutFalse');
+				$('#ChangeShout').addClass('viewChangeShoutTrue');
+			} else {
+				$('#ChangeShout').removeClass('viewChangeShoutTrue');
+				$('#ChangeShout').addClass('viewChangeShoutFalse');
+			}
+		},
 	};
 	return global;
 })();
