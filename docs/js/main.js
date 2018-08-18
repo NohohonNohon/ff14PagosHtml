@@ -48,6 +48,16 @@ var main = (function() {
 		});
 	}
 
+	/**
+	* 天気情報をプルダウンに設定
+	*/
+	function setWeatherData() {
+		var weathers = WeatherFinder.weatherLists['Pagos'];
+		var selects = $("#HopeWeather").add("#BeforeWeather");
+		for (var w in weathers) {
+			selects.append('<option value="' + weathers[w].id + '">' + WeatherFinder.getWeatherName(weathers[w].id) + '</option>');
+		}
+	}
 
 	var global = {
 
@@ -57,6 +67,7 @@ var main = (function() {
 		init: function() {
 			loadData();
 			makeTable();
+			setWeatherData();
 			time.init();
 			map.setMap();
 			time.times();
@@ -188,7 +199,7 @@ var main = (function() {
 				['26',	'動く雪洞「キングイグルー」',		'フワシ',				'31',	'',		'17.7',	'16.6',	'[8]キングイグルー',		'イグルー',		'イグルー'	],
 				['27',	'硬質の病魔「アサグ」',			'ワンダリング・オプケン',		'32',	'',		'10.5',	'11.0',	'[9]アサグ',			'アサグ',		'アサグ'	],
 				['28',	'家畜の慈母「スラビー」',		'パゴス・ビリー',			'33',	'',		'9.8',	'19.0',	'[10]スラビー',			'スラビー',		'スラビー'	],
-				['29',	'円卓の霧王「キングアースロ」',		'バル・スニッパー',			'34',	'霧→雪?',	'8.7',	'15.4',	'[11]キングアースロ',		'アースロ',		'アースロ'	],
+				['29',	'円卓の霧王「キングアースロ」',		'バル・スニッパー',			'34',	'霧',		'8.7',	'15.4',	'[11]キングアースロ',		'アースロ',		'アースロ'	],
 				['30',	'唇亡びて歯寒し(エルダータウルス)',	'ラボラトリー・ミノタウロス',		'35',	'',		'13.8',	'18.7',	'[12]エルダータウルス',		'タウルス',		'タウルス'	],
 				['31',	'野牛の救い主「エウレカの聖牛」',	'エルダーバッファロー',			'36',	'',		'26.4',	'16.9',	'[14]エウレカの聖牛',		'聖牛',		'聖牛'		],
 				['32',	'雷雲の魔獣「ハダヨッシュ」',		'ヴォイド・レッサードラゴン',		'37',	'雷',		'31.0',	'18.5',	'[15]ハダヨッシュ',		'ハダヨッシュ',	'ヨッシュ'	],
@@ -229,6 +240,47 @@ var main = (function() {
 				$('#ChangeShout').addClass('viewChangeShoutFalse');
 			}
 		},
+
+		/**
+		* 天気を検索する
+		*/
+		searchWeather: function() {
+			$("#watherResult").html('');
+			var weatherStartTime = WeatherFinder.getWeatherTimeFloor(new Date()).getTime();
+			var weatherStartHour = WeatherFinder.getEorzeaHour(weatherStartTime);
+			var zone = 'Pagos';
+			var targetWeather = $("#HopeWeather").val();
+			var targetPrevWeather = $("#BeforeWeather").val();
+			var tries = 0;
+			var matches = 0;
+			var weather = WeatherFinder.getWeather(weatherStartTime, zone);
+			var prevWeather = WeatherFinder.getWeather(weatherStartTime-1, zone);
+			while (tries < 1000 && matches < 3) {
+				var weatherMatch = targetWeather == null;
+				var prevWeatherMatch = targetPrevWeather == null;
+				if (targetWeather == "" || targetWeather == weather.id) {
+					weatherMatch = true;
+				}
+				if (targetPrevWeather == "" || targetPrevWeather == prevWeather.id) {
+					prevWeatherMatch = true;
+				}
+				if (weatherMatch && prevWeatherMatch) {
+					var weatherDate = new Date(weatherStartTime).toLocaleString();
+					$("#watherResult").append('<tr><td>' + weatherStartHour + ':00</td><td>' + weatherDate + '</td></tr>');
+					matches++;
+				}
+				weatherStartTime += 8 * 175 * 1000; // Increment by 8 Eorzean hours
+				weatherStartHour = WeatherFinder.getEorzeaHour(weatherStartTime);
+				prevWeather = weather;
+				weather = WeatherFinder.getWeather(weatherStartTime, zone);
+				tries++;
+			}
+
+			//検索該当無し
+			if (matches == 0) {
+				$("#watherResult").append('<td colspan="2">' + $('#noResultMsg').text() + '</td>');
+			}
+		}
 	};
 	return global;
 })();

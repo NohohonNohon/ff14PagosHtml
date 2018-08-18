@@ -3,6 +3,25 @@
 	width: 45px;
 }
 
+/* 天気テーブルを横並び */
+.weather {
+	display: table;
+}
+
+.weatherTime {
+	display: table-cell;
+}
+
+.weatherSearch {
+	display: table-cell;
+	padding-left: 10px;
+}
+
+/* 天気検索テーブル */
+.weatherSearch table {
+	text-align: center;
+}
+
 /* 天気時刻テーブルタイトル */
 .timeTableTitle {
 	min-width: 200px;

@@ -11,11 +11,12 @@
 	<script src="js/map.js"></script>
 	<script src="js/time.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/weather.js"></script>
 </head>
 
 <body>
 	<div class="header">
-		<b>FF14　エウレカ・パゴス編　支援ツール Ver<span id="version">1.0.6</span></b><span id="oldMsg">※古いバージョンのデータを使用しています。最新に更新する場合、ページ下部の「設定リセット」ボタンを押してください。</span>
+		<b>FF14　エウレカ・パゴス編　支援ツール Ver<span id="version">1.0.7</span></b><span id="oldMsg">※古いバージョンのデータを使用しています。最新に更新する場合、ページ下部の「設定リセット」ボタンを押してください。</span>
 		<div id="google_translate_element"></div>
 	</div>
 	<script type="text/javascript">
@@ -23,60 +24,136 @@
 	new google.translate.TranslateElement({pageLanguage: 'ja', includedLanguages: 'de,en,fr,it,ko,zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
 	}
 	</script><script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-	<table border="1">
-		<tbody>
-			<tr>
-				<td class="timeTableTitle">天気変更時刻</td>
-				<td class="timeTableValue">現在時刻</td>
-				<td class="timeTableValue">次回</td>
-				<td class="timeTableValue">次々回</td>
-				<td class="timeTableValue">次々々回</td>
-			</tr>
-			<tr>
-				<td>エオルゼア時間</td>
-				<td align="center">
-					<div id="eotime">21:09</div>
-				</td>
-				<td align="center">
-					<div id="firstE">00:00</div>
-				</td>
-				<td align="center">
-					<div id="secondE">08:00</div>
-				</td>
-				<td align="center">
-					<div id="thirdE">16:00</div>
-				</td>
-			</tr>
-			<tr>
-				<td>日本時間</td>
-				<td align="center">
-					<div id="localtime">09:21</div>
-				</td>
-				<td align="center">
-					<div id="firstLT">09:30</div>
-				</td>
-				<td align="center">
-					<div id="secondLT">09:53</div>
-				</td>
-				<td align="center">
-					<div id="thirdLT">10:16</div>
-				</td>
-			</tr>
-			<tr>
-				<td>タイマー</td>
-				<td align="center">--′--</td>
-				<td align="center">
-					<div id="firstL">--′--</div>
-				</td>
-				<td align="center">
-					<div id="secondL">--′--</div>
-				</td>
-				<td align="center">
-					<div id="thirdL">--′--</div>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+	<div class="weather">
+		<div class="weatherTime">
+			<table border="1">
+				<tbody>
+					<tr>
+						<td class="timeTableTitle">天気変更時刻</td>
+						<td class="timeTableValue">現在時刻</td>
+						<td class="timeTableValue">次回</td>
+						<td class="timeTableValue">次々回</td>
+						<td class="timeTableValue">次々々回</td>
+					</tr>
+					<tr>
+						<td>天候</td>
+						<td align="center">
+							<div id="currentW">--</div>
+						</td>
+						<td align="center">
+							<div id="firstW">--</div>
+						</td>
+						<td align="center">
+							<div id="secondW">--</div>
+						</td>
+						<td align="center">
+							<div id="thirdW">--</div>
+						</td>
+					</tr>
+					<tr>
+						<td>エオルゼア時間</td>
+						<td align="center">
+							<div id="eotime">21:09</div>
+						</td>
+						<td align="center">
+							<div id="firstE">00:00</div>
+						</td>
+						<td align="center">
+							<div id="secondE">08:00</div>
+						</td>
+						<td align="center">
+							<div id="thirdE">16:00</div>
+						</td>
+					</tr>
+					<tr>
+						<td>日本時間</td>
+						<td align="center">
+							<div id="localtime">09:21</div>
+						</td>
+						<td align="center">
+							<div id="firstLT">09:30</div>
+						</td>
+						<td align="center">
+							<div id="secondLT">09:53</div>
+						</td>
+						<td align="center">
+							<div id="thirdLT">10:16</div>
+						</td>
+					</tr>
+					<tr>
+						<td>タイマー</td>
+						<td align="center">--′--</td>
+						<td align="center">
+							<div id="firstL">--′--</div>
+						</td>
+						<td align="center">
+							<div id="secondL">--′--</div>
+						</td>
+						<td align="center">
+							<div id="thirdL">--′--</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="weatherSearch">
+			<table>
+				<thead>
+					<tr>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<select id="HopeWeather"><option value="">全て</option></select>
+						</td>
+						<td>
+							<select id="BeforeWeather"><option value="">全て</option></select>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<button type="button" name="Search" onclick="main.searchWeather();">検索</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="weatherSearch">
+			<table border="1">
+				<thead>
+					<tr>
+						<td>エオルゼア時間</td>
+						<td>日本時間</td>
+					</tr>
+				</thead>
+				<tbody id="watherResult">
+					<tr>
+						<td>--:--</td>
+						<td>--:--</td>
+					</tr>
+					<tr>
+						<td>--:--</td>
+						<td>--:--</td>
+					</tr>
+					<tr>
+						<td>--:--</td>
+						<td>--:--</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="message">
+				<p id="noResultMsg">該当なし</p>
+				<p id="FairSkiesName">晴れ</p>
+				<p id="FogName">霧</p>
+				<p id="HeatWavesName">灼熱波</p>
+				<p id="SnowName">雪</p>
+				<p id="ThunderName">雷</p>
+				<p id="BlizzardsName">吹雪</p>
+			</div>
+		</div>
+	</div>
 
 	<table border="1">
 	<tbody>

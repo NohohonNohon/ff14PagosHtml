@@ -567,19 +567,35 @@ var time = (function() {
 		var tL =tLM + '′' + tLS;
 		var Ltime = Lhour + ':' + Lminute;
 		var Etime = Ehour + ':' + Eminute;
+		var firstLDate = new Date();
+		var secondLDate = new Date();
+		var thirdLDate = new Date();
+		firstLDate.setMinutes(firstLDate.getMinutes() + 23);
+		secondLDate.setMinutes(secondLDate.getMinutes() + 46);
+		thirdLDate.setMinutes(thirdLDate.getMinutes() + 69);
 		document.getElementById("eotime").innerHTML=Etime;
 		document.getElementById("localtime").innerHTML=Ltime;
+		document.getElementById("currentW").innerHTML=getWeather(LocalDate);
 		document.getElementById("firstE").innerHTML=fE;
 		document.getElementById("firstL").innerHTML=fL;
+		document.getElementById("firstW").innerHTML=getWeather(firstLDate);
 		document.getElementById("secondE").innerHTML=sE;
 		document.getElementById("secondL").innerHTML=sL;
+		document.getElementById("secondW").innerHTML=getWeather(secondLDate);
 		document.getElementById("thirdE").innerHTML=tE;
 		document.getElementById("thirdL").innerHTML=tL;
+		document.getElementById("thirdW").innerHTML=getWeather(thirdLDate);
 		document.getElementById("firstLT").innerHTML=flt;
 		document.getElementById("secondLT").innerHTML=slt;
 		document.getElementById("thirdLT").innerHTML=tlt;
 
 		checkNM();
+	}
+
+	function getWeather(date) {
+		var weatherTime = WeatherFinder.getWeatherTimeFloor(date).getTime();
+		var weather = WeatherFinder.getWeather(weatherTime, 'Pagos');
+		return WeatherFinder.getWeatherName(weather.id);
 	}
 
 	function result(){
