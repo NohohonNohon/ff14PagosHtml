@@ -14,6 +14,7 @@ calculateForecastTarget: function(timeMillis) {
 
     var unixSeconds = Math.trunc(timeMillis / 1000);
     // Get Eorzea hour for weather start
+    var bell = unixSeconds / 175;
 
     // Do the magic 'cause for calculations 16:00 is 0, 00:00 is 8 and 08:00 is 16
     var increment = (bell + 8 - (bell % 8)) % 24;
@@ -36,6 +37,7 @@ calculateForecastTarget: function(timeMillis) {
 getEorzeaHour: function(timeMillis) {
     var unixSeconds = Math.trunc(timeMillis / 1000);
     // Get Eorzea hour
+    var bell = unixSeconds / 175 % 24;
     return Math.trunc(bell);
 },
 
