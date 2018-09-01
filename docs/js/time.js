@@ -745,6 +745,8 @@ var time = (function() {
 		}
 
 		document.getElementById("result").value=shout;
+
+		checkNM();
 	}
 
 
