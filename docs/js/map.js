@@ -16,7 +16,7 @@ var map = (function() {
 		*/
 		setMap: function(){		
 			mapObj = new L.map('map', {
-				dragging: true, // マウスドラッグによるパン操作を不可
+				dragging: false, // マウスドラッグによるパン操作を不可
 				touchZoom: false, // タッチによるズーム操作を不可
 				scrollWheelZoom: false, // スクロールによるズーム操作を不可
 				doubleClickZoom: false, // ダブルクリックによるズーム操作を不可
